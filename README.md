@@ -1,26 +1,26 @@
 # Uso:
 
 
-##Clonar repositorio:
+## Clonar repositorio:
 ```
 mkdir ProyectoEDO
 cd Proyecto EDO
 git clone https://github.com/unperrorraro/Simulador_ED_py
 ```
-##Si quieres un entorno virtual
+## Si quieres un entorno virtual
 
-###Linux y MAC
+### Linux y MAC
 ```
 python -m venv env
 source env/bin/activate
 ```
-###Windows
+### Windows
 
 ```
 python -m venv env
 env\Scripts\activate
 ```
-##Instalar dependencias
+## Instalar dependencias
 ```
 cd Simulador_ED_py
 pip install -r requeriments.txt
