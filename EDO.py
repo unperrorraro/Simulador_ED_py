@@ -5,7 +5,7 @@ from matplotlib.widgets import Button, Slider
 from matplotlib import axes
 
 def dagger(a):
-    return a<0 ? 0 : a
+    return 0 if a<0 else a
 
 r1 = 2
 r2 = 2
