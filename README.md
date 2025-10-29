@@ -4,7 +4,7 @@
 ## Clonar repositorio:
 ```
 mkdir ProyectoEDO
-cd Proyecto EDO
+cd ProyectoEDO
 git clone https://github.com/unperrorraro/Simulador_ED_py
 ```
 ## Si quieres un entorno virtual
