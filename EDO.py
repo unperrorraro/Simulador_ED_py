@@ -13,7 +13,7 @@ r1 = 0.5 #Provisional
 r2 = 0.02 #Provisional
 r3 = 0.02 #Provisional
 r4 = 0.03   #Provisional  
-r5 = 0.02 #Provisional
+r5 = 0.05 #Provisional
 k1 = 6000 
 k2 = 8500
 h0 = 0.005
@@ -26,32 +26,32 @@ gamma = 5e-05  #Provisional
 delta = 2e-04  #Provisional
 epsilon = 1e-03 #Provisional
 dseta = 1e-03 #Provisional
-nu = 0.05  #Provisional
-Lambda = 0.5 #Provisional
+nu = 0.0005  #Provisional
+Lambda = 0.05 #Provisional
 psi = 1e-04 #Provisional
-A_min = 2000.0 #Provisional
-eta = 0.05  #Provisional
+A_min = 6000.0 #Provisional
+eta = 0.0005  #Provisional
 
-A0 = 6000
+A0 = 7000 
 F0 = 2000
 D0 = 100 #Provisional
-O0 = 5 #Provisional
+O0 = 0 #Provisional
 V0 = 6 #Provisional
 
 def edo_huerta(t, y, r1,r2,r3,r4,r5,k1,k2,h0,h1,h2,h3,alpha,beta,gamma,delta,epsilon,dseta,nu,Lambda,psi,A_min,eta):
     A,F,D,O,V = y
-    dA = r1*A*(1-(A/k1)) +((alpha*A*F)/(1+(h0*A))) - nu*A - (V*eta*dagger(A-A_min))/(1+(h1*dagger(A-A_min)))
-    dF = r2*F*(1-(F/k2)) +((beta*A*F)/(1+(h2*A))) - gamma*F*D
-    dD = (r3*D*-1) +((delta*D*F)) - epsilon*O*D
-    dO = Lambda - r4*O + (dseta*D*O)
-    dV = -r5*V+(V*psi*dagger(A-A_min))/(1+(h3*dagger(A-A_min)))
+    dA = (r1*A*(1-(A/k1))) +((alpha*A*F)/(1+(h0*A))) - (nu*A) - ((V*eta*dagger(A-A_min))/(1+(h1*dagger(A-A_min))))
+    dF = (r2*F*(1-(F/k2))) +((beta*A*F)/(1+(h2*A))) - (gamma*F*D)
+    dD = (r3*D*-1) +((delta*D*F)) - (epsilon*O*D)
+    dO = ((Lambda) -( r4*O )+ (dseta*D*O))
+    dV = (-r5*V+((V*psi*dagger(A-A_min))/(1+(h3*dagger(A-A_min)))))
     return [dA, dF, dD, dO, dV]
 
 var = [A0, F0, D0, O0, V0, r1, r2, r3, r4, r5, k1, k2, h0, h1, h2, h3, alpha, beta, gamma, delta, epsilon, dseta, nu, Lambda, psi, A_min, eta]
 variables_names = ["A0", "F0", "D0", "O0", "V0", "r1", "r2", "r3", "r4", "r5", "k1", "k2", "h0", "h1", "h2", "h3", "alpha", "beta", "gamma", "delta", "epsilon", "dseta", "nu", "Lambda", "Psi", "A_min", "eta"]
 variables_symbols = ["A0", "F0", "D0", "O0", "V0", "r1", "r2", "r3", "r4", "r5", "k1", "k2", "h0", "h1", "h2", "h3", "α", "β", "γ", "δ", "ε", "ζ", "μ", "λ", "ψ", "A_", "η"]
 
-t_max = 300
+t_max = 600
 t_eval = np.linspace(0, t_max, 2000)
 
 sol = solve_ivp(
