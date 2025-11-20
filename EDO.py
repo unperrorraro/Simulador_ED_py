@@ -15,10 +15,9 @@ def dagger(a):
 def Lambda(t, Periodo, Amplitud, Limite, pulse_width=0.1):
     if Periodo <= 0:
         return 0.0
-    # n = número de pulso actual (0,1,2,...). Añadimos small tol para robustez.
     n = int(np.floor((t + 1e-9) / Periodo))
     if (n < Limite) and (abs(t - n*Periodo) <= pulse_width/2):
-        # devolvemos una tasa elevada durante pulse_width; la integral sobre el pulso ~ Amplitud
+
         return Amplitud / pulse_width
     return 0.0
 
@@ -44,7 +43,7 @@ epsilon = 1e-03 #Provisional
 dseta = 1e-03 #Provisional
 nu = 0.0005  #Provisional
 #Lambda = 0.05 #Provisional
-psi = 1e-04 #Provisional
+psi = 3e-04 #Provisional
 A_min = 6000.0 #Provisional
 eta = 0.0005  #Provisional
 
@@ -158,19 +157,10 @@ for c in range(cols):
 
 
 
-# handler común para los TextBox que respeta la bandera suppress_update
-def _textbox_handler(text):
-    if suppress_update:
-        return
-    update(None)
-
-# conectar el handler a todos los TextBox
-for tb in textboxes:
-    tb.on_submit(_textbox_handler)
 
 
 
-# Función que actualiza la solución leyendo las cajas de texto
+
 def update(arg=None):
     # Leer valores de las cajas; si falla la conversión se mantiene el valor previo
     vals = [None]*len(textboxes)
@@ -181,10 +171,7 @@ def update(arg=None):
         except:
             vals[idx] = var[idx]
 
-    # convertir L (índice 25) a entero (nº de pulsos)
-    L_val = int(round(vals[25])) if len(vals) > 25 else int(round(var[25]))
-
-    # Preparar condiciones iniciales a partir de las primeras 5 cajas
+      # Preparar condiciones iniciales a partir de las primeras 5 cajas
     y0 = [vals[0], vals[1], vals[2], vals[3], vals[4]]
 
     # Llamar a solve_ivp con los parámetros leídos desde las cajas
@@ -225,25 +212,20 @@ def update(arg=None):
         print("Error al integrar:", e)
         return
 
-    # Verificar que la integración fue exitosa
     if not getattr(sol2, "success", True):
         print("solve_ivp falló o no convergió. mensaje:", getattr(sol2, "message", None))
         return
 
-    # Actualizar X e Y de las líneas (evita shape mismatch)
-    # las nuevas x serán sol2.t
     line0.set_xdata(sol2.t); line0.set_ydata(sol2.y[0])
     line1.set_xdata(sol2.t); line1.set_ydata(sol2.y[1])
     line2.set_xdata(sol2.t); line2.set_ydata(sol2.y[2])
     line3.set_xdata(sol2.t); line3.set_ydata(sol2.y[3])
     line4.set_xdata(sol2.t); line4.set_ydata(sol2.y[4])
 
-    # ajustar límites en x e y automáticamente
     ax2.relim()
     ax2.autoscale_view()
 
-    # Forzar redraw
-    fig2.canvas.draw_idle()# Botón reset: vuelve a los valores iniciales de 'var'
+    fig2.canvas.draw_idle()
 
 
 
