@@ -25,7 +25,7 @@ env\Scripts\activate
 cd Simulador_ED_py
 pip install -r requeriments.txt
 ```
-## Correr es script
+## Correr el script
 ```
 python EDO.py
 ```
