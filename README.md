@@ -1,4 +1,4 @@
- ![/edp/save-media/fresas_detallado_1000.gif]
+ ![edp/campo_fresas_mask.png]
 
 # Uso:
 
