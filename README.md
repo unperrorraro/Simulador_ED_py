@@ -25,7 +25,12 @@ env\Scripts\activate
 cd Simulador_ED_py
 pip install -r requeriments.txt
 ```
-## Correr el script
+## Correr el script(EDO)
 ```
 python EDO.py
+```
+## Correr La Simulacion Entera(EDP)
+```
+cd edp
+python main.py
 ```
