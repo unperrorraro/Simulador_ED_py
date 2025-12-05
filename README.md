@@ -51,8 +51,8 @@ Los parametros estan almacenados en "edp/parametros.json"
 
 
 - S_campo : "Superficie del campo" en la practica cambia la escala de la máscara de fresas
-- Nx,Ny : Dimensiones de las matrizas utilizadas en el modelo y resolucion de los frames generados (Aumenta el tiempo de renderizado)
-- T : Tiempo (En dias) Qe dura la simulacion
+- Nx,Ny : Dimensiones de las matrizas utilizadas en el modelo y resolucion de los frames generados **(Aumenta mucho el tiempo de renderizado)**
+- T : Tiempo **(En dias)** Que dura la simulacion
 - mask_path : por si se quiere usar una mascara distina a la generada. (si se quiere por defecto : campo_fresas_mask.png) 
 
 ### JSONs
@@ -66,4 +66,12 @@ Los parametros estan almacenados en "edp/parametros.json"
 cd edp
 python main.py
 ```
+
+# Ejemplos:
+
+ ![simulacion detallada, area 1000 m2 en gif](/edp/save-media/fresas_detallado_1000.gif)
+ ![simulacion detallada, area 300 m2 en gif](/edp/save-media/fresas_detallado_300.gif)
+ ![simulacion no detallada, area 1000 m2 en gif](/edp/save-media/fresas_no_detallado_1000.gif)
+ ![simulacion no detallada, area 300 m2 en gif](/edp/save-media/fresas_no_detallado_300.gif)
+
 
