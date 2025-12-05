@@ -1,4 +1,4 @@
- ![save-media/fresas_detallado_1000.gif]
+ ![/edp/save-media/fresas_detallado_1000.gif]
 
 # Uso:
 
@@ -35,9 +35,9 @@ pip install -r requeriments.txt
 Los parámetros del sistema de EDOs se cambian durante la ejecución del script
 
 ### Simular
-``
+```
 python EDO.py
-``
+```
 
 ## EDP
 
