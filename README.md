@@ -69,9 +69,18 @@ python main.py
 
 # Ejemplos:
 
+simulacion detallada, area 1000 m2
  ![simulacion detallada, area 1000 m2 en gif](/edp/save-media/fresas_detallado_1000.gif)
+
+simulacion detallada, area 300 m2 
  ![simulacion detallada, area 300 m2 en gif](/edp/save-media/fresas_detallado_300.gif)
+
+ simulacion no detallada, area 1000 m2
  ![simulacion no detallada, area 1000 m2 en gif](/edp/save-media/fresas_no_detallado_1000.gif)
+
+ simulacion no detallada, area 300 m2
  ![simulacion no detallada, area 300 m2 en gif](/edp/save-media/fresas_no_detallado_300.gif)
+
+
 
 
