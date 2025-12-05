@@ -1,4 +1,4 @@
- ![/edp/campo_fresas_mask.png]
+ ![/edp/campo_fresas_mask.png](/edp/campo_fresas_mask.png)
 
 # Uso:
 
@@ -44,6 +44,7 @@ python EDO.py
 ### Cambiar Parametros
 
 Los parámetros del sistema de EDPs se cambian antes de la ejecución del modelo.
+
 Los parametros estan almacenados en "edp/parametros.json"
 
 
