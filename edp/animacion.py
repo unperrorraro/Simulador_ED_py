@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.animation import FuncAnimation, FFMpegWriter,PillowWriter
 _animacion_global = None
 def animar(frames_A, frames_F,frames_D,frames_O,frames_V,guardar_gif=False, filename="fresas.gif"):
@@ -18,10 +19,11 @@ def animar(frames_A, frames_F,frames_D,frames_O,frames_V,guardar_gif=False, file
     vminO, vmaxO = O_all.min(), O_all.max()
     vminV, vmaxV = V_all.min(), V_all.max()
 
+    fresas = LinearSegmentedColormap.from_list("negro_verde_rojo", ["black","green", "red"])
     imA = axs[0].imshow(frames_A[0], origin='lower', cmap='magma',
                     vmin=vminA, vmax=vmaxA)
 
-    imF = axs[1].imshow(frames_F[0], origin='lower', cmap='bone',
+    imF = axs[1].imshow(frames_F[0], origin='lower', cmap=fresas,
                     vmin=vminF, vmax=vmaxF)
 
     imD = axs[2].imshow(frames_D[0], origin='lower', cmap='magma',
